@@ -1,0 +1,82 @@
+[
+  {
+    "nome_oficial": "Chihuahua",
+    "origem": "México",
+    "descricao": "Pequenos, mas poderosos, os Chihuahuas são a menor das raças, mas de grande coração. Rapidamente identificáveis pela cabeça em forma de maçã e pelos olhos inocentes, o olhar dedicado transmite o calor gigantesco que se encontra dentro. Chihuahuas são ferozmente leais, ótimos para casas na cidade ou no campo e, com o devido cuidado, vivem uma longa vida saudável – normalmente, duas décadas ou mais. A raça também tem uma versão de pelagem macia."
+  },
+  {
+    "nome_oficial": "Yorkshire Terrier",
+    "origem": "Reino Unido",
+    "descricao": "Pequenos, mas corajosos, o que lhes falta em tamanho, esses cães diminutos mais do que compensam em personalidade. Conhecidos pelo temperamento animado, mas amistoso, os Yorkshire Terriers têm muita personalidade, são ótimas companhias e estabelecem laços estreitos com as famílias humanas. Com todas as características de um verdadeiro terrier, eles também são bons cães de guarda. Devido a tudo isso e à gloriosa juba de pelos longos e sedosos, eles são frequentemente descritos como um 'leão em miniatura'."
+  },
+  {
+    "nome_oficial": "Dachshund",
+    "origem": "Alemanha",
+    "descricao": "Não é exagero dizer que o Dachshund padrão de pelo longo é obstinado em sua busca por todas as coisas: parte do grupo Scent Hound, a raça é conhecida por seu tamanho compacto. Como poderia um cão tão pequeno pegar alguma coisa? Mas o cão Dachshund foi criado pequeno para o esporte, especificamente para escavar buracos estreitos e encontrar texugos e os animais mais pequeninos. Um pano de fundo como esse deu origem à atitude corajosa de não fazer prisioneiros. Como se seu tamanho único não bastasse, também existe uma versão em miniatura do Dachshund."
+  },
+  {
+    "nome_oficial": "Pug",
+    "origem": "China",
+    "descricao": "Integrante conhecido do grupo de raças toy, o Pug é a diversão canina em formato de barril. De aparência única, eles são sempre a estrela do show, além de também terem uma disposição doce e brincalhona. Eles também têm uma pelagem fácil de manter, não exigem muito exercício e também não são um raça que late muito. O Pug tem até mesmo o próprio lema latino, 'Multum in parvo', que pode ser traduzido como: 'Muito em pouco'."
+  },
+  {
+    "nome_oficial": "Shiba Inu",
+    "origem": "Japão",
+    "descricao": "Uma vez criado como cães de caça em sua terra natal, Japão, o Shiba Inus agora é valorizado como um 'monumento nacional'. Inteligentes, independentes e rápidos, os Shibas às vezes são comparados a gatos graças ao seu comportamento confiante de 'você precisa de mim mais do que eu preciso de você'. No entanto, com treinamento e socialização desde cedo, o Shiba Inu é um membro da família profundamente leal."
+  },
+  {
+    "nome_oficial": "Shih Tzu",
+    "origem": "Tibete/China",
+    "descricao": "Com um nome que significa 'pequeno leão' em mandarim, é possível que haja poucos cães com nomes mais apropriados do que o Shih Tzu. Além da magnífica juba de longos cachos lustrosos, eles também têm um porte orgulhoso, quase régio, que condiz com as origens como animais de estimação dos imperadores chineses. Porém, a semelhança acaba ali. Criados para serem animais de companhia, os Shih Tzus são cães domésticos gentis que estabelecem fortes ligações com os tutores. Em vez de um palácio, tudo aquilo de que eles realmente precisam é de um lar amoroso."
+  },
+  {
+    "nome_oficial": "Beagle",
+    "origem": "Reino Unido",
+    "descricao": "Entre os cães mais populares do mundo, os Beagles são animais leais, afetuosos e inteligentes. Com os seus grandes olhos castanhos, as orelhas caídas e a expressão 'suplicante', estes bonitos sabujos são também difíceis de resistir. A sua experiência de animal de caça pode tornar o treino um pouco desafiador e tende a latir mais do que a média, mas a raça Beagle vale absolutamente o esforço adicional. Com um pouco de tempo e paciência, em breve terá o seu próprio 'Snoopy' a seu lado."
+  },
+  {
+    "nome_oficial": "Poodle",
+    "origem": "Alemanha",
+    "descricao": "Aquele andar ágil, porte régio e penteados invejáveis. Você pode levar Poodles para as feiras de supermodelos do mundo canino. No entanto, há muito mais nessa raça bem antiga do que se pensa. Uma vez criados para aves aquáticas, os Poodles super inteligentes são atletas naturais e inerentemente orientados para realizar tarefas. Seja Toy, Miniatura ou padrão, esses cães inteligentes e de primeira classe são altamente treináveis e se destacam em várias atividades caninas, o que os torna companheiros maravilhosos e membros da família."
+  },
+  {
+    "nome_oficial": "Boxer",
+    "origem": "Alemanha",
+    "descricao": "Conhecidos pela sua natureza brincalhona e amigável, os Boxers estão repletos de uma exuberância saltitante. Um pouco turbulentos por vezes, têm uma energia abundante e um enorme entusiasmo pela vida. Com o treino numa fase inicial, os Boxers tornam-se também companheiros leais e dedicados, e criam laços profundos com as respetivas famílias humanas. Verdadeiramente profundos. Na verdade, não há nada que mais apreciem do que estar ao seu lado, e até adormecerão junto à sua perna se permitir."
+  },
+  {
+    "nome_oficial": "Golden Retriever",
+    "origem": "Escócia",
+    "descricao": "A própria definição das palavras 'cão saltitante', os Golden Retrievers estão cheios de exuberância alegre. Também uma raça muito gentil, mas eles têm um excelente temperamento e são amistosos e carinhosos com todos. Seja em casa no seio da família, em uma missão de busca e resgate ou trabalhando como cão guia, o Golden Retriever também é uma raça notavelmente versátil. Quando você pensa na bela aparência dourada e na constituição robusta, não é surpresa que eles sejam um dos cães mais populares do mundo."
+  },
+  {
+    "nome_oficial": "German Shepherd",
+    "origem": "Alemanha",
+    "descricao": "Ele pode ser chamado de Sr. Popularidade. O celebrado Pastor Alemão é uma das raças mais procuradas no mundo todo, elogiada por sua alta inteligência e lealdade inabalável. Um animal de estimação maravilhoso para a família, o Pastor Alemão é muito obediente, o que facilita seu treinamento, e eles se divertem muito fazendo isso. Mais um bônus: aqueles olhos brilhantes com marcas impressionantes."
+  },
+  {
+    "nome_oficial": "Rottweiler",
+    "origem": "Alemanha",
+    "descricao": "Apesar da sua reputação feroz e do tamanho formidável, o Rottweiler é uma raça leal e dedicada com um temperamento afetuoso, obediente e surpreendentemente carinhoso. No entanto, graças à sua disposição destemida, inteligência natural e estrutura poderosa, são um dos cães de guarda mais populares do mundo. Como tal, os Rottweilers tendem a dar-se melhor com um tutor experiente que consiga assumir o papel de 'líder da matilha'."
+  },
+  {
+    "nome_oficial": "Corgi",
+    "origem": "País de Gales",
+    "descricao": "Corgi é uma raça de cães nativa do País de Gales, era a raça oficial da rainha Isabel II do Reino Unido, que possuía sete exemplares e um quarto de seu palácio dedicado principalmente a seus 'companheiros'. Criados para o trabalho desde o ano de 920, foram inicialmente usados para pastorear gado, caçar ratos e guardar fazendas. Especula-se se sua história não estaria ligada à dos vallhund suecos, possivelmente levados à Grã Bretanha pelos vikings. Mais adiante na história, passaram a serem vistos como cães de companhia, apesar de ainda serem usados para o trabalho. O gosto por morder permanece como um traço comum a esta raça pastora, o que torna seu adestramento difícil. Fisicamente apresenta a pelagem colorida e curta, seu focinho é compacto e mais curto que o do corgi e a falta de rabo é um traço hereditário."
+  },
+  {
+    "nome_oficial": "French Bulldog",
+    "origem": "França",
+    "descricao": "O buldogue Francês, que conhecemos, é o produto de diferentes cruzamentos feitos por criadores nos bairros populares de Paris no ano de 1880. Sua história está ligada a marginalização britânica que sofreu durante o século XIX. Naquela época o buldogue existia em apenas um tamanho na Grã-Bretanha, já que os exemplares nascidos menores eram rejeitados. Levados à França, estes pequenos encontraram maior liberdade para se desenvolverem. Foram criados primeiramente para caçarem ratos, mas após figurarem em pinturas de DegasToulouse-Lautrec, tornaram-se populares inclusive na Inglaterra. De personalidade dita entusiástica e travessa, tornou-se um canino da moda, bem como o principal companheiro de cocheiros e açougueiros. Fisicamente pode atingir os 31 cm e pesar 12,5 kg. Sua pelagem é bastante curta, grossa e de aspecto brilhante, podendo ainda apresentar-se em quatro diferentes cores: fulvo, malhado, vermelho tigrado e preto tigrado. Entre seus principais problemas de saúde estão os oculares e respiratórios (braquicefalia), que o tornam um cão de cuidados caros; e o superaquecimento, sendo então recomendada atenção especial para água."
+  },
+  {
+    "nome_oficial": "Pomeranian",
+    "origem": "Pomerânia (Polônia/Alemanha)",
+    "descricao": "O Pomeranian (também conhecido como Pom, Pommy ou Pome) é uma raça de cachorro do tipo Spitz, nomeada em referência à região da Pomerânia, no noroeste da Polônia e nordeste da Alemanha, na Europa Central. Classificado como uma raça toy devido ao seu pequeno porte, o Pomeranian descende de cães Spitz maiores, especialmente o Spitz Alemão. A raça se tornou popular graças a diversos membros da realeza desde o século XVIII. A Rainha Vitória possuía um Pomeranian particularmente pequeno, e, consequentemente, a variedade menor tornou-se universalmente popular. Somente durante a vida de Vitória, o tamanho da raça diminuiu pela metade. Desde pelo menos 1998, a raça figura entre as cinquenta mais populares nos Estados Unidos, e a moda atual por cães pequenos aumentou ainda mais sua popularidade mundialmente."
+  },
+  {
+    "nome_oficial": "Husky",
+    "origem": "Rússia",
+    "descricao": "Husky, o cachorro da Sibéria (ou cão de trenó). À primeira vista, sua cara de lobo e seu porte podem ser intimidadores. Mas, na verdade, o husky siberiano é amigável, gentil e sociável, além de muito trabalhador. Também conhecida como cão de trenó, essa raça foi criada com a companhia de humanos e outros animais para transportar cargas e pessoas, e ter uma convivência pacífica com todos. Isso resultou não só em sua impressionante resistência física e vontade de trabalhar, mas também em um temperamento agradável, de boa convivência e muito extrovertido. Originado no nordeste da Ásia, essa raça possui uma espessa camada protetora de pele e pelos, como se fosse um casaco, que o mantém quente e com uma excepcional tolerância ao frio, mesmo em temperaturas congelantes. Essas características o tornam adequado para viver em cidades de clima mais ameno."
+  }
+]
