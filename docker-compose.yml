@@ -3,8 +3,8 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    expose:
-      - "4004"
+    ports:
+      - "4004:4004"
     environment:
       - TF_USE_LEGACY_KERAS=1
       - TF_ENABLE_ONEDNN_OPTS=0
@@ -16,9 +16,7 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
     ports:
-      - "3000:80"
-    environment:
-      - API_KEY=${API_KEY}
+      - "3000:3000"
     depends_on:
       - backend
     restart: unless-stopped

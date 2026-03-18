@@ -3,32 +3,19 @@ FROM node:20-alpine AS build
 
 WORKDIR /app
 
-# Copia arquivos de dependências
 COPY package.json package-lock.json* ./
-
-# Instala dependências
 RUN npm install
 
-# Copia código fonte
 COPY . .
-
-# Build da aplicação
 RUN npm run build
 
-# Production stage
-FROM nginx:alpine
+# Production stage - servidor estático leve
+FROM node:20-alpine
 
-# Copia os arquivos buildados
-COPY --from=build /app/dist /usr/share/nginx/html
+RUN npm install -g serve
 
-# Copia configuração do nginx como template
-COPY nginx.conf /etc/nginx/nginx.conf.template
+COPY --from=build /app/dist /app
 
-# Script de inicialização que injeta a API_KEY no config
-COPY docker-entrypoint.sh /docker-entrypoint.sh
-RUN chmod +x /docker-entrypoint.sh
+EXPOSE 3000
 
-# Expõe a porta 80
-EXPOSE 80
-
-ENTRYPOINT ["/docker-entrypoint.sh"]
+CMD ["serve", "-s", "/app", "-l", "3000"]

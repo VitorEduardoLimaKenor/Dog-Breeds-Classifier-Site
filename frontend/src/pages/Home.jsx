@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { 
+import {
   Github, ExternalLink, Upload, Loader2, CheckCircle, XCircle, X,
   Database, TrendingUp, Camera, Layers, FlaskConical, FileCode, Cpu, Sparkles, Zap
 } from 'lucide-react'
@@ -298,24 +298,101 @@ export default function Home() {
               </div>
             </motion.div>
 
-            <motion.a
-              href="#testar"
-              className="inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 rounded-lg text-white font-semibold transition-all shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 mt-8"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.95, duration: 0.6 }}
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              Testar modelo
-              <Zap className="w-4 h-4" />
-            </motion.a>
           </div>
         </div>
       </section>
 
+      {/* Divider */}
+      <div className="max-w-4xl mx-auto px-6">
+        <div className="h-px bg-gradient-to-r from-transparent via-[#2a2a45] to-transparent" />
+      </div>
+
+      {/* ==================== SUMÁRIO / NAVEGAÇÃO ==================== */}
+      <section className="py-12 px-6 relative">
+        <div className="max-w-5xl mx-auto">
+          <motion.div
+            className="text-center mb-8"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <h2 className="text-3xl font-bold text-cyan-400 mb-2">Explore o Projeto</h2>
+            <p className="text-[#6b6b80] text-sm">Clique em qualquer seção para navegar diretamente</p>
+          </motion.div>
+
+          <motion.div
+            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
+            {[
+              { id: 'sobre', icon: '📖', label: 'Sobre', desc: 'O projeto' },
+              { id: 'dataset', icon: '📊', label: 'Dataset', desc: '5.035 imagens' },
+              { id: 'pipeline', icon: '⚙️', label: 'Pipeline', desc: 'Treinamento' },
+              { id: 'modelos', icon: '🧠', label: 'Modelos', desc: 'Comparação' },
+              { id: 'testes', icon: '🎯', label: 'Testes', desc: 'Mundo real' },
+              { id: 'testar', icon: '🐕', label: 'Testar', desc: 'Experimente!' },
+            ].map((item, index) => (
+              <motion.div
+                key={item.id}
+                onClick={() => document.getElementById(item.id)?.scrollIntoView({ behavior: 'smooth' })}
+                className="group relative p-4 bg-gradient-to-br from-[#0a0a15] to-[#0c0c1a] border border-[#1e1e35] hover:border-blue-500/40 rounded-2xl text-center transition-all hover:shadow-lg hover:shadow-blue-500/5 cursor-pointer"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.05 }}
+                whileHover={{ y: -5, scale: 1.02 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <motion.span
+                  className="text-3xl block mb-2"
+                  whileHover={{ scale: 1.2, rotate: [0, -10, 10, 0] }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {item.icon}
+                </motion.span>
+                <p className="text-white font-semibold text-sm">{item.label}</p>
+                <p className="text-[#6b6b80] text-xs mt-0.5">{item.desc}</p>
+
+                {/* Hover glow effect */}
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* Quick stats */}
+          <motion.div
+            className="mt-8 flex flex-wrap justify-center gap-6 text-center"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+          >
+            {[
+              { value: '95%', label: 'Precisão', icon: '🎯' },
+              { value: '16', label: 'Raças', icon: '🐕' },
+              { value: '5K+', label: 'Imagens', icon: '📸' },
+            ].map((stat, i) => (
+              <div key={i} className="flex items-center gap-2 px-4 py-2 bg-[#0a0a15]/50 rounded-full border border-[#1e1e35]">
+                <span>{stat.icon}</span>
+                <span className="text-cyan-400 font-bold">{stat.value}</span>
+                <span className="text-[#6b6b80] text-sm">{stat.label}</span>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Divider */}
+      <div className="max-w-4xl mx-auto px-6">
+        <div className="h-px bg-gradient-to-r from-transparent via-[#2a2a45] to-transparent" />
+      </div>
+
       {/* ==================== SOBRE O PROJETO ==================== */}
-      <section className="py-14 px-6 relative">
+      <section id="sobre" className="py-14 px-6 relative scroll-mt-8">
         <div className="max-w-5xl mx-auto">
           <motion.div 
             className="mb-8"
@@ -376,8 +453,13 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Divider */}
+      <div className="max-w-4xl mx-auto px-6">
+        <div className="h-px bg-gradient-to-r from-transparent via-[#2a2a45] to-transparent" />
+      </div>
+
       {/* ==================== DATASET ==================== */}
-      <section className="py-20 px-6 relative">
+      <section id="dataset" className="py-20 px-6 relative scroll-mt-8">
         <div className="max-w-5xl mx-auto">
           <motion.div 
             className="mb-12"
@@ -457,8 +539,13 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Divider */}
+      <div className="max-w-4xl mx-auto px-6">
+        <div className="h-px bg-gradient-to-r from-transparent via-[#2a2a45] to-transparent" />
+      </div>
+
       {/* ==================== PIPELINE ==================== */}
-      <section className="py-20 px-6 relative">
+      <section id="pipeline" className="py-20 px-6 relative scroll-mt-8">
         <div className="max-w-5xl mx-auto">
           <motion.div 
             className="mb-12"
@@ -496,8 +583,13 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Divider */}
+      <div className="max-w-4xl mx-auto px-6">
+        <div className="h-px bg-gradient-to-r from-transparent via-[#2a2a45] to-transparent" />
+      </div>
+
       {/* ==================== COMPARAÇÃO DE MODELOS ==================== */}
-      <section className="py-20 px-6 relative">
+      <section id="modelos" className="py-20 px-6 relative scroll-mt-8">
         <div className="max-w-5xl mx-auto">
           <motion.div 
             className="mb-12"
@@ -534,12 +626,8 @@ export default function Home() {
               </thead>
               <tbody>
                 {models.map((model, i) => (
-                  <motion.tr
+                  <tr
                     key={i}
-                    initial={{ opacity: 0, x: -10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.1 }}
                     className={`border-b border-[#1e1e35] ${model.best ? 'bg-blue-500/5' : ''}`}
                   >
                     <td className={`py-4 px-4 font-medium ${model.best ? 'text-cyan-400' : 'text-white'}`}>
@@ -552,14 +640,14 @@ export default function Home() {
                     </td>
                     <td className="text-center py-4 px-4">
                       {model.best ? (
-                        <span className="inline-flex items-center gap-1 px-3 py-1 bg-blue-500/10 text-cyan-400 rounded-full text-sm animate-pulse-glow">
+                        <span className="inline-flex items-center gap-1 px-3 py-1 bg-blue-500/10 text-cyan-400 rounded-full text-sm">
                           <CheckCircle className="w-3 h-3" /> Escolhido
                         </span>
                       ) : (
                         <span className="text-[#6b6b80]">—</span>
                       )}
                     </td>
-                  </motion.tr>
+                  </tr>
                 ))}
               </tbody>
             </table>
@@ -570,8 +658,13 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Divider */}
+      <div className="max-w-4xl mx-auto px-6">
+        <div className="h-px bg-gradient-to-r from-transparent via-[#2a2a45] to-transparent" />
+      </div>
+
       {/* ==================== TESTES REAIS ==================== */}
-      <section className="py-20 px-6 relative">
+      <section id="testes" className="py-20 px-6 relative scroll-mt-8">
         <div className="max-w-5xl mx-auto">
           <motion.div 
             className="mb-12"
@@ -635,11 +728,16 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Divider */}
+      <div className="max-w-4xl mx-auto px-6">
+        <div className="h-px bg-gradient-to-r from-transparent via-[#2a2a45] to-transparent" />
+      </div>
+
       {/* ==================== TESTAR MODELO ==================== */}
       <section id="testar" className="py-20 px-6 relative">
         <div className="max-w-5xl mx-auto">
-          <motion.div 
-            className="mb-12"
+          <motion.div
+            className="mb-8"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -649,104 +747,72 @@ export default function Home() {
               Demonstração
             </p>
             <h2 className="text-3xl font-bold text-white">Testar o Modelo</h2>
-            <p className="text-[#6b6b80] mt-2">
-              Envie uma imagem de cachorro e veja o modelo em ação
-            </p>
           </motion.div>
 
-          {/* Process Info */}
-          <motion.div 
-            className="p-6 bg-gradient-to-br from-[#0a0a15] to-[#0c0c18] border border-[#1e1e35] rounded-xl mb-8"
-            initial={{ opacity: 0, y: 20 }}
+          {/* Info compacta */}
+          <motion.div
+            className="grid sm:grid-cols-2 gap-4 mb-4"
+            initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.4 }}
           >
-            <h3 className="text-lg font-semibold text-white mb-6 flex items-center gap-2">
-              <Cpu className="w-5 h-5 text-blue-400" />
-              Processo
-            </h3>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {[
-                { n: 1, title: 'Upload', desc: 'Imagem enviada ao servidor' },
-                { n: 2, title: 'Pré-processamento', desc: 'Redimensionamento e normalização' },
-                { n: 3, title: 'Inferência', desc: 'Análise pelo modelo InceptionV3' },
-                { n: 4, title: 'Resultado', desc: 'Raça com maior probabilidade' },
-              ].map((step, index) => (
-                <motion.div 
-                  key={step.n} 
-                  className="p-4 bg-[#0f0f1a] rounded-lg border border-[#1e1e35] hover:border-blue-500/40 transition-colors"
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.05 }}
-                >
-                  <div className="flex items-start gap-3">
-                    <div className="w-7 h-7 rounded-full bg-gradient-to-br from-blue-500/20 to-cyan-500/20 border border-blue-500/30 flex items-center justify-center text-cyan-400 font-bold text-sm shrink-0">
-                      {step.n}
-                    </div>
-                    <div>
-                      <p className="text-white font-medium text-sm">{step.title}</p>
-                      <p className="text-[#6b6b80] text-sm">{step.desc}</p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
+            {/* Como funciona */}
+            <div className="p-4 bg-[#0a0a15] border border-[#1e1e35] rounded-xl">
+              <p className="text-cyan-400 text-xs font-medium mb-2 flex items-center gap-1.5">
+                <Cpu className="w-3.5 h-3.5" />
+                Como funciona
+              </p>
+              <p className="text-[#8888aa] text-xs leading-relaxed">
+                Upload → Pré-processamento → InceptionV3 → Resultado
+              </p>
             </div>
 
-            <div className="mt-6 p-4 bg-[#0f0f1a] border border-[#1e1e35] rounded-lg">
-              <p className="text-cyan-400 font-medium text-sm mb-2 flex items-center gap-2">
-                <Sparkles className="w-4 h-4" />
+            {/* Dicas */}
+            <div className="p-4 bg-[#0a0a15] border border-[#1e1e35] rounded-xl">
+              <p className="text-cyan-400 text-xs font-medium mb-2 flex items-center gap-1.5">
+                <Sparkles className="w-3.5 h-3.5" />
                 Dicas
               </p>
-              <ul className="space-y-1 text-[#6b6b80] text-sm">
-                <li>• Use imagens com boa iluminação</li>
-                <li>• O cachorro deve estar bem visível</li>
-                <li>• Evite imagens muito borradas</li>
-              </ul>
+              <p className="text-[#8888aa] text-xs leading-relaxed">
+                Boa iluminação • Cachorro visível • Foto nítida
+              </p>
             </div>
+          </motion.div>
 
-            <div className="mt-6 p-4 bg-[#0f0f1a] border border-[#1e1e35] rounded-lg">
-              <div className="flex items-center justify-between gap-4 mb-3">
-                <p className="text-white font-semibold text-sm flex items-center gap-2">
-                  <FlaskConical className="w-4 h-4 text-purple-400" />
-                  Raças suportadas
-                </p>
-                <span className="text-[#6b6b80] text-xs">{breeds.length} raças</span>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {breeds.map((breed, i) => (
-                  <motion.span
-                    key={i}
-                    whileHover={{ scale: 1.05 }}
-                    className="px-3 py-1.5 rounded-full text-[#B3B3C3] text-sm cursor-default border border-[#1e1e35] bg-gradient-to-r from-blue-500/5 via-cyan-500/5 to-purple-500/5 hover:border-blue-500/40 hover:text-cyan-300 transition-colors"
-                  >
-                    {breed}
-                  </motion.span>
-                ))}
-              </div>
+          {/* Raças suportadas */}
+          <motion.div
+            className="p-4 bg-[#0a0a15] border border-[#1e1e35] rounded-xl mb-6"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.1 }}
+          >
+            <p className="text-cyan-400 text-xs font-medium mb-3 flex items-center gap-1.5">
+              <FlaskConical className="w-3.5 h-3.5" />
+              {breeds.length} Raças suportadas
+            </p>
+            <div className="flex flex-wrap gap-1.5">
+              {breeds.map((breed, i) => (
+                <span
+                  key={i}
+                  className="px-2.5 py-1 rounded-full text-[#a0a0b5] text-xs border border-[#1e1e35] bg-[#0c0c18] hover:border-cyan-500/40 hover:text-cyan-300 transition-colors"
+                >
+                  {breed}
+                </span>
+              ))}
             </div>
           </motion.div>
 
           <div className="grid lg:grid-cols-1 gap-8">
             {/* Classifier */}
-            <motion.div 
+            <motion.div
               className="p-6 bg-gradient-to-br from-[#0a0a15] to-[#0c0c18] border border-[#1e1e35] rounded-xl"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <h3 className="text-lg font-semibold text-white mb-6 flex items-center gap-2">
-                <Upload className="w-5 h-5 text-cyan-400" />
-                Teste do modelo
-              </h3>
-
-              <div className="mb-6 p-4 bg-[#0f0f1a] border border-[#1e1e35] rounded-lg">
-                <p className="text-[#6b6b80] text-sm">
-                  O modelo pode cometer erros.
-                </p>
-              </div>
 
               <AnimatePresence mode="wait">
                 {!preview ? (
@@ -756,15 +822,44 @@ export default function Home() {
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     className={`
-                      relative border-2 border-dashed rounded-xl p-12 text-center cursor-pointer transition-all
-                      ${dragActive ? 'border-blue-500 bg-blue-500/5 shadow-lg shadow-blue-500/10' : 'border-[#1e1e35] hover:border-blue-500/50'}
+                      relative rounded-2xl p-8 text-center cursor-pointer transition-all overflow-hidden
+                      ${dragActive
+                        ? 'bg-gradient-to-br from-blue-500/20 via-cyan-500/15 to-purple-500/20 border-2 border-cyan-400 shadow-2xl shadow-cyan-500/20'
+                        : 'bg-gradient-to-br from-[#0a0a15] via-[#0c0c18] to-[#0a0a15] border-2 border-dashed border-[#2a2a45] hover:border-cyan-500/50 hover:shadow-lg hover:shadow-blue-500/10'}
                     `}
                     onDragEnter={handleDrag}
                     onDragLeave={handleDrag}
                     onDragOver={handleDrag}
                     onDrop={handleDrop}
                     onClick={() => document.getElementById('fileInput').click()}
+                    whileHover={{ scale: 1.01 }}
+                    whileTap={{ scale: 0.99 }}
                   >
+                    {/* Background decoration */}
+                    <div className="absolute inset-0 pointer-events-none overflow-hidden">
+                      <motion.div
+                        className="absolute -top-4 -left-4 text-6xl opacity-10"
+                        animate={{ rotate: [0, 10, -10, 0] }}
+                        transition={{ duration: 4, repeat: Infinity }}
+                      >
+                        🐾
+                      </motion.div>
+                      <motion.div
+                        className="absolute -bottom-4 -right-4 text-6xl opacity-10"
+                        animate={{ rotate: [0, -10, 10, 0] }}
+                        transition={{ duration: 4, repeat: Infinity, delay: 0.5 }}
+                      >
+                        🐾
+                      </motion.div>
+                      <motion.div
+                        className="absolute top-1/2 -right-6 text-4xl opacity-5"
+                        animate={{ x: [0, 10, 0] }}
+                        transition={{ duration: 3, repeat: Infinity }}
+                      >
+                        🐕
+                      </motion.div>
+                    </div>
+
                     <input
                       type="file"
                       id="fileInput"
@@ -772,15 +867,51 @@ export default function Home() {
                       accept="image/*"
                       onChange={handleFileInput}
                     />
-                    <div className="flex flex-col items-center gap-4">
-                      <div className="w-14 h-14 rounded-full bg-gradient-to-br from-blue-500/20 to-cyan-500/20 flex items-center justify-center">
-                        <Upload className="w-6 h-6 text-blue-400" />
-                      </div>
+
+                    <div className="relative z-10 flex flex-col items-center gap-4">
+                      <motion.div
+                        className="relative"
+                        animate={dragActive ? { scale: [1, 1.1, 1], y: [0, -5, 0] } : {}}
+                        transition={{ duration: 0.5, repeat: dragActive ? Infinity : 0 }}
+                      >
+                        <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-blue-500/20 via-cyan-500/20 to-purple-500/20 border border-cyan-500/30 flex items-center justify-center">
+                          <motion.span
+                            className="text-4xl"
+                            animate={{ rotate: dragActive ? [0, -5, 5, 0] : 0 }}
+                            transition={{ duration: 0.3, repeat: dragActive ? Infinity : 0 }}
+                          >
+                            {dragActive ? '🐶' : '📸'}
+                          </motion.span>
+                        </div>
+                        <motion.span
+                          className="absolute -top-1 -right-1 text-lg"
+                          animate={{ scale: [1, 1.3, 1], opacity: [0.5, 1, 0.5] }}
+                          transition={{ duration: 1.5, repeat: Infinity }}
+                        >
+                          ✨
+                        </motion.span>
+                      </motion.div>
+
                       <div>
-                        <p className="text-white font-semibold text-lg">
-                          {dragActive ? 'Solte a imagem aqui' : 'Arraste ou clique'}
+                        <motion.p
+                          className="text-white font-bold text-xl mb-2"
+                          animate={dragActive ? { scale: 1.05 } : { scale: 1 }}
+                        >
+                          {dragActive ? '🎉 Solte a foto aqui!' : 'Envie a foto do seu cachorro'}
+                        </motion.p>
+                        <p className="text-[#8888aa] text-sm mb-3">
+                          Arraste uma imagem ou clique para selecionar
                         </p>
-                        <p className="text-[#6b6b80] text-sm mt-1">JPG, PNG, WEBP</p>
+                        <div className="flex items-center justify-center gap-2">
+                          {['JPG', 'PNG', 'WEBP'].map((format) => (
+                            <span
+                              key={format}
+                              className="px-3 py-1 bg-[#1a1a2e] border border-[#2a2a45] rounded-full text-xs text-cyan-400 font-medium"
+                            >
+                              {format}
+                            </span>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   </motion.div>
@@ -797,66 +928,60 @@ export default function Home() {
                         <img
                           src={preview}
                           alt="Preview"
-                          className="w-full max-h-72 object-contain rounded-lg ring-2 ring-blue-500/30 bg-[#0f0f1a]"
+                          className="w-full max-h-64 object-contain rounded-xl ring-1 ring-blue-500/30 bg-[#0f0f1a]"
                         />
                         <button
                           onClick={reset}
-                          className="absolute -top-2 -right-2 w-7 h-7 bg-red-500 rounded-full flex items-center justify-center hover:bg-red-600 transition-colors"
+                          className="absolute -top-2 -right-2 w-7 h-7 bg-red-500 rounded-full flex items-center justify-center hover:bg-red-600 transition-all hover:scale-110 shadow-lg"
                         >
-                          <X className="w-4 h-4 text-white" />
+                          <X className="w-3 h-3 text-white" />
                         </button>
                       </div>
 
-                      <div className="space-y-4">
-                        <div className="p-4 bg-[#0f0f1a] border border-[#1e1e35] rounded-lg">
-                          <p className="text-[#6b6b80] text-xs mb-1">Arquivo selecionado</p>
-                          <p className="text-white font-medium break-all">{file?.name}</p>
+                      <div className="space-y-3">
+                        <div className="p-3 bg-[#0f0f1a] border border-[#1e1e35] rounded-lg">
+                          <p className="text-[#6b6b80] text-xs mb-0.5">Arquivo</p>
+                          <p className="text-white text-sm font-medium break-all truncate">{file?.name}</p>
                         </div>
 
                         {!loading && !result && !error && (
                           <motion.button
                             key="classify"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
                             onClick={classify}
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
-                            className="w-full px-8 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 rounded-lg text-white font-semibold transition-all shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40"
+                            className="w-full px-6 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 rounded-lg text-white font-semibold transition-all shadow-lg shadow-blue-500/20"
                           >
-                            Classificar raça
+                            Identificar Raça
                           </motion.button>
                         )}
 
                         {loading && (
                           <motion.div
                             key="loading"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            className="flex items-center gap-3 p-4 bg-[#0f0f1a] border border-[#1e1e35] rounded-lg"
+                            className="p-4 bg-[#0f0f1a] border border-[#1e1e35] rounded-lg text-center"
                           >
-                            <Loader2 className="w-5 h-5 text-cyan-400 animate-spin" />
-                            <p className="text-[#6b6b80]">Classificando...</p>
+                            <motion.div
+                              className="text-3xl mb-2"
+                              animate={{ rotate: [0, -10, 10, -10, 0], y: [0, -3, 0] }}
+                              transition={{ duration: 0.8, repeat: Infinity, ease: "easeInOut" }}
+                            >
+                              🐕
+                            </motion.div>
+                            <p className="text-cyan-400 text-sm font-medium">Analisando...</p>
                           </motion.div>
                         )}
 
                         {error && (
                           <motion.div
                             key="error"
-                            initial={{ opacity: 0, scale: 0.98 }}
-                            animate={{ opacity: 1, scale: 1 }}
                             className="p-4 bg-red-500/10 border border-red-500/30 rounded-lg"
                           >
-                            <div className="flex items-start gap-3">
-                              <XCircle className="w-5 h-5 text-red-400 mt-0.5" />
-                              <div>
-                                <p className="text-white font-semibold">Não foi possível classificar</p>
-                                <p className="text-[#B3B3C3] text-sm mt-1">{error}</p>
-                              </div>
-                            </div>
+                            <p className="text-white font-medium text-sm">Ops! Algo deu errado</p>
+                            <p className="text-[#B3B3C3] text-xs mt-1">{error}</p>
                             <button
                               onClick={reset}
-                              className="mt-4 w-full px-4 py-2 text-sm bg-[#0f0f1a] hover:bg-[#12121e] border border-[#1e1e35] hover:border-blue-500/50 rounded-lg text-white transition-all"
+                              className="mt-3 w-full px-3 py-2 text-xs bg-[#0f0f1a] hover:bg-[#12121e] border border-[#1e1e35] hover:border-red-500/50 rounded-lg text-white transition-all font-medium"
                             >
                               Tentar novamente
                             </button>
@@ -869,37 +994,73 @@ export default function Home() {
                       {result && (
                         <motion.div
                           key="result"
-                          initial={{ opacity: 0, y: 10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          className="mt-6 p-6 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 border border-cyan-500/30 rounded-xl"
+                          initial={{ opacity: 0, scale: 0.95 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          transition={{ duration: 0.4, type: "spring" }}
+                          className="mt-6"
                         >
-                          <div className="flex items-start gap-4">
-                            <div className="w-10 h-10 rounded-full bg-cyan-500/15 border border-cyan-500/30 flex items-center justify-center shrink-0">
-                              <CheckCircle className="w-5 h-5 text-cyan-400" />
-                            </div>
-                            <div className="min-w-0 flex-1">
-                              <p className="text-[#6b6b80] text-xs">Raça identificada</p>
-                              <p className="text-2xl font-bold text-white capitalize mt-1">{result}</p>
-                              <p className="text-[#B3B3C3] text-sm mt-3 leading-relaxed">
-                                {breedInfoLoading
-                                  ? 'Carregando descrição da raça...'
-                                  : (breedInfo?.descricao || 'Descrição indisponível no momento.')}
-                              </p>
-                              {breedInfo?.origem && (
-                                <p className="text-[#6b6b80] text-sm mt-3">
-                                  <span className="text-cyan-400 font-medium">Origem:</span> {breedInfo.origem}
-                                </p>
-                              )}
-                              <div className="mt-5 flex flex-col sm:flex-row gap-3">
-                                <button
-                                  onClick={reset}
-                                  className="w-full sm:w-auto px-4 py-2 text-sm bg-[#0f0f1a] hover:bg-[#12121e] border border-[#1e1e35] hover:border-blue-500/50 rounded-lg text-white transition-all"
+                          {/* Result Card */}
+                          <motion.div
+                            className="p-5 bg-gradient-to-br from-blue-500/10 via-cyan-500/8 to-purple-500/10 border border-cyan-500/30 rounded-xl"
+                            initial={{ y: 20 }}
+                            animate={{ y: 0 }}
+                            transition={{ delay: 0.2 }}
+                          >
+                            <div className="flex items-center gap-4 mb-4">
+                              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-cyan-500/30 flex items-center justify-center text-2xl">
+                                🐶
+                              </div>
+                              <div>
+                                <p className="text-[#6b6b80] text-xs uppercase tracking-wider">Resultado</p>
+                                <motion.p
+                                  className="text-2xl font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent capitalize"
+                                  initial={{ opacity: 0, x: -20 }}
+                                  animate={{ opacity: 1, x: 0 }}
+                                  transition={{ delay: 0.4 }}
                                 >
-                                  Testar outra imagem
-                                </button>
+                                  {result}
+                                </motion.p>
                               </div>
                             </div>
-                          </div>
+
+                            <motion.div
+                              className="p-3 bg-[#0a0a12]/50 rounded-lg mb-3"
+                              initial={{ opacity: 0 }}
+                              animate={{ opacity: 1 }}
+                              transition={{ delay: 0.5 }}
+                            >
+                              <p className="text-[#B3B3C3] text-sm leading-relaxed">
+                                {breedInfoLoading ? (
+                                  <span className="flex items-center gap-2">
+                                    <Loader2 className="w-4 h-4 animate-spin text-cyan-400" />
+                                    Buscando informações...
+                                  </span>
+                                ) : (
+                                  breedInfo?.descricao || 'Descrição indisponível.'
+                                )}
+                              </p>
+                            </motion.div>
+
+                            {breedInfo?.origem && (
+                              <motion.p
+                                className="text-sm text-[#6b6b80] mb-3"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ delay: 0.6 }}
+                              >
+                                🌍 Origem: <span className="text-cyan-400">{breedInfo.origem}</span>
+                              </motion.p>
+                            )}
+
+                            <motion.button
+                              onClick={reset}
+                              whileHover={{ scale: 1.02 }}
+                              whileTap={{ scale: 0.98 }}
+                              className="w-full px-4 py-2.5 bg-[#0f0f1a] hover:bg-[#121220] border border-[#2a2a45] hover:border-cyan-500/40 rounded-lg text-white text-sm font-medium transition-all"
+                            >
+                              Testar outra imagem
+                            </motion.button>
+                          </motion.div>
                         </motion.div>
                       )}
                     </AnimatePresence>

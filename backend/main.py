@@ -32,13 +32,10 @@ async def api_key_middleware(request: Request, call_next):
 
     return await call_next(request)
 
-# CORS restrito — apenas o frontend pode acessar
+# CORS aberto — autenticação protegida por API Key
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:3000",
-        "http://127.0.0.1:3000",
-    ],
+    allow_origins=["*"],
     allow_credentials=False,
     allow_methods=["GET", "POST"],
     allow_headers=["X-API-Key", "Content-Type"],
