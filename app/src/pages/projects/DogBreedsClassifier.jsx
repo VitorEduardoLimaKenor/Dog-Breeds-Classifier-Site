@@ -1,11 +1,16 @@
 import { useState, useCallback } from 'react'
+import { Link } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import {
-  Github, ExternalLink, Upload, Loader2, CheckCircle, XCircle, X,
+  ArrowLeft, Github, ExternalLink, Loader2, CheckCircle, X,
   Database, TrendingUp, Camera, Layers, FlaskConical, FileCode, Cpu, Sparkles, Zap
 } from 'lucide-react'
 
-const API_URL = '/api'
+import BackgroundFX from '../../components/layout/BackgroundFX'
+
+// Em dev, o vite proxy mapeia "/api" -> http://localhost:4004
+// Em prod, defina VITE_API_URL com a URL pública da API.
+const API_URL = import.meta.env.VITE_API_URL || '/api'
 const API_KEY = import.meta.env.VITE_API_KEY
 
 const models = [
@@ -140,81 +145,21 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[#050508] relative overflow-hidden">
-      {/* Background Effects */}
-      <div className="fixed inset-0 pointer-events-none overflow-hidden">
-        {/* Animated gradient orbs */}
-        <motion.div 
-          className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-blue-500/15 rounded-full blur-[120px]"
-          animate={{
-            x: [0, 100, 0],
-            y: [0, 50, 0],
-            scale: [1, 1.2, 1],
-          }}
-          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div 
-          className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-cyan-500/15 rounded-full blur-[100px]"
-          animate={{
-            x: [0, -80, 0],
-            y: [0, -60, 0],
-            scale: [1, 1.3, 1],
-          }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-        />
-        <motion.div 
-          className="absolute top-1/3 right-1/3 w-[300px] h-[300px] bg-purple-500/10 rounded-full blur-[80px]"
-          animate={{
-            x: [0, 60, 0],
-            y: [0, -40, 0],
-            scale: [1, 1.1, 1],
-          }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        />
-        <motion.div 
-          className="absolute bottom-1/3 left-1/3 w-[350px] h-[350px] bg-blue-600/10 rounded-full blur-[90px]"
-          animate={{
-            x: [0, -50, 0],
-            y: [0, 70, 0],
-            scale: [1.1, 1, 1.1],
-          }}
-          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", delay: 3 }}
-        />
-        
-        {/* Floating particles */}
-        {[...Array(20)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1 h-1 bg-blue-400/30 rounded-full"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [0, -100, 0],
-              opacity: [0, 1, 0],
-            }}
-            transition={{
-              duration: 5 + Math.random() * 5,
-              repeat: Infinity,
-              delay: Math.random() * 5,
-              ease: "easeInOut"
-            }}
-          />
-        ))}
-        
-        {/* Grid pattern overlay */}
-        <div 
-          className="absolute inset-0 opacity-[0.02]"
-          style={{
-            backgroundImage: `linear-gradient(rgba(59, 130, 246, 0.3) 1px, transparent 1px),
-                             linear-gradient(90deg, rgba(59, 130, 246, 0.3) 1px, transparent 1px)`,
-            backgroundSize: '50px 50px'
-          }}
-        />
+      <BackgroundFX />
+
+      {/* Voltar para /projetos */}
+      <div className="max-w-5xl mx-auto px-6 pt-28 relative">
+        <Link
+          to="/projetos"
+          className="inline-flex items-center gap-2 text-sm text-[#B3B3C3] hover:text-cyan-400 transition-colors"
+        >
+          <ArrowLeft className="w-4 h-4" />
+          Voltar para projetos
+        </Link>
       </div>
 
       {/* ==================== HERO ==================== */}
-      <section className="pt-16 pb-16 px-6 relative">
+      <section className="pt-8 pb-16 px-6 relative">
         <div className="max-w-5xl mx-auto">
           {/* Hero Content */}
           <div className="text-center mb-12">

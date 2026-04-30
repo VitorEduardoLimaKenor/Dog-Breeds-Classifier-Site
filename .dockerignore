@@ -1,16 +1,36 @@
-venv/
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-.Python
-.git/
+# Node / build artifacts
+node_modules
+**/node_modules
+dist
+**/dist
+.cache
+**/.cache
+
+# Git
+.git
 .gitignore
+.gitattributes
+
+# Env / secrets
 .env
-.venv/
-*.log
+.env.local
+.env.*.local
+**/.env
+**/.env.local
+
+# Editores / SO
 .DS_Store
 Thumbs.db
-*.ipynb
-.idea/
-.vscode/
+.idea
+.vscode
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+
+# Documentação que não precisa entrar no build
+README.md
+**/README.md
+memory/

@@ -1,24 +1,33 @@
+# ============================================================
 # Build stage
+# ============================================================
 FROM node:20-alpine AS build
 
-WORKDIR /app
+WORKDIR /build
 
-COPY package.json package-lock.json* ./
+# Instala deps primeiro para aproveitar o cache do Docker
+COPY app/package.json app/package-lock.json* ./
 RUN npm install
 
-COPY . .
+# Copia o restante do código do app
+COPY app/ ./
 
+# Variáveis de build (Vite injeta no bundle)
 ARG VITE_API_KEY
+ARG VITE_API_URL
 ENV VITE_API_KEY=$VITE_API_KEY
+ENV VITE_API_URL=$VITE_API_URL
 
 RUN npm run build
 
-# Production stage - servidor estático leve
+# ============================================================
+# Runtime stage — servidor estático leve
+# ============================================================
 FROM node:20-alpine
 
 RUN npm install -g serve
 
-COPY --from=build /app/dist /app
+COPY --from=build /build/dist /app
 
 EXPOSE 3000
 

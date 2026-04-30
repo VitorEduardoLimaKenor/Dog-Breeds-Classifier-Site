@@ -1,20 +1,29 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Footer from './components/Footer'
+
+import Header from './components/layout/Header'
+import Footer from './components/layout/Footer'
+import ScrollToTop from './components/layout/ScrollToTop'
+
 import Home from './pages/Home'
+import Projects from './pages/Projects'
+import NotFound from './pages/NotFound'
+import DogBreedsClassifier from './pages/projects/DogBreedsClassifier'
 
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-[#0D0D0D]">
-        {/* Content */}
-        <div className="relative">
-          <main>
-            <Routes>
-              <Route path="/" element={<Home />} />
-            </Routes>
-          </main>
-          <Footer />
-        </div>
+      <ScrollToTop />
+      <div className="min-h-screen bg-[#050508] flex flex-col">
+        <Header />
+        <main className="flex-1">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/projetos" element={<Projects />} />
+            <Route path="/projetos/dog-breeds-classifier" element={<DogBreedsClassifier />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </main>
+        <Footer />
       </div>
     </Router>
   )
