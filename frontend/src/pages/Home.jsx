@@ -6,6 +6,7 @@ import {
 } from 'lucide-react'
 
 const API_URL = '/api'
+const API_KEY = import.meta.env.VITE_API_KEY
 
 const models = [
   { name: 'VGG16', train: '92%', val: '77%', test: '74%', best: false },
@@ -97,6 +98,7 @@ export default function Home() {
       formData.append('file', file)
       const response = await fetch(`${API_URL}/predict`, {
         method: 'POST',
+        headers: { 'X-API-Key': API_KEY },
         body: formData
       })
       const data = await response.json()
@@ -107,7 +109,9 @@ export default function Home() {
 
         setBreedInfoLoading(true)
         try {
-          const infoResponse = await fetch(`${API_URL}/breed-info/${breedKey}`)
+          const infoResponse = await fetch(`${API_URL}/breed-info/${breedKey}`, {
+            headers: { 'X-API-Key': API_KEY }
+          })
           if (infoResponse.ok) {
             const infoData = await infoResponse.json()
             setBreedInfo(infoData)

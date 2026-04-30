@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Upload, Image, Loader2, CheckCircle, XCircle, X, Sparkles } from 'lucide-react'
 
 const API_URL = '/api'
+const API_KEY = import.meta.env.VITE_API_KEY
 
 export default function Classifier() {
   const [file, setFile] = useState(null)
@@ -68,6 +69,7 @@ export default function Classifier() {
 
       const response = await fetch(`${API_URL}/predict`, {
         method: 'POST',
+        headers: { 'X-API-Key': API_KEY },
         body: formData
       })
 
@@ -78,7 +80,9 @@ export default function Classifier() {
         setResult(breedName.replace('_', ' '))
         // Buscar informações da raça
         try {
-          const infoRes = await fetch(`${API_URL}/breed-info/${breedName}`)
+          const infoRes = await fetch(`${API_URL}/breed-info/${breedName}`, {
+            headers: { 'X-API-Key': API_KEY }
+          })
           if (infoRes.ok) {
             const info = await infoRes.json()
             setBreedInfo(info)

@@ -7,6 +7,10 @@ COPY package.json package-lock.json* ./
 RUN npm install
 
 COPY . .
+
+ARG VITE_API_KEY
+ENV VITE_API_KEY=$VITE_API_KEY
+
 RUN npm run build
 
 # Production stage - servidor estático leve
