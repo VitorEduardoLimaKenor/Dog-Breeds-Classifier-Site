@@ -1,5 +1,11 @@
 // Fonte única de verdade dos projetos do portfólio.
-// Adicione novos itens aqui — a página /projetos consome esta lista automaticamente.
+//
+// Cada projeto é uma aplicação independente, hospedada em sua própria URL.
+// Para adicionar um projeto novo, copie um item e ajuste os campos.
+//
+// Campos:
+//   externalUrl — URL pública do projeto (deploy). É para onde o card linka.
+//   repoUrl     — URL do repositório no GitHub (opcional). Aparece no ícone do GitHub.
 
 export const projects = [
   {
@@ -25,11 +31,8 @@ export const projects = [
       { label: "Raças suportadas", value: "16" },
       { label: "Imagens", value: "5K+" },
     ],
-    links: {
-      live: "/projetos/dog-breeds-classifier",
-      repo: "https://github.com/VitorEduardoLimaKenor/Dog_Breeds_Classifier",
-      api: "https://github.com/VitorEduardoLimaKenor/dogbreeds-api",
-    },
+    externalUrl: "https://dog-breeds.vitorkenor.com",
+    repoUrl: "https://github.com/VitorEduardoLimaKenor/Dog_Breeds_Classifier",
     featured: true,
     year: 2025,
   },

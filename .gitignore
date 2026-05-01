@@ -1,37 +1,14 @@
-# Dependências
-venv/
-node_modules/
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-.Python
-
-# Ambiente
-.env
-.env.local
-.env.*.local
-
-# IDEs
-.idea/
-.vscode/
-*.swp
-*.swo
-
-# Sistema
+node_modules
+dist
 .DS_Store
-Thumbs.db
-
-# Build
-dist/
-build/
-*.egg-info/
-
-# Logs
+*.local
+.vite
+.vscode/*
+!.vscode/extensions.json
+.idea
 *.log
-npm-debug.log*
 
-# Testes
-.coverage
-htmlcov/
-.pytest_cache/
+# tudo o que estiver dentro de app/ que não deve ir pro git
+app/node_modules
+app/dist
+app/.vite

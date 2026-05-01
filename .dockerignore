@@ -1,36 +1,7 @@
-# Node / build artifacts
-node_modules
 **/node_modules
-dist
 **/dist
-.cache
-**/.cache
-
-# Git
+**/.vite
 .git
-.gitignore
-.gitattributes
-
-# Env / secrets
-.env
-.env.local
-.env.*.local
-**/.env
-**/.env.local
-
-# Editores / SO
-.DS_Store
-Thumbs.db
-.idea
 .vscode
-*.swp
-*.swo
-
-# Logs
+.idea
 *.log
-npm-debug.log*
-
-# Documentação que não precisa entrar no build
-README.md
-**/README.md
-memory/

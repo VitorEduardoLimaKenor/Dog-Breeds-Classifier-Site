@@ -5,17 +5,10 @@ export default defineConfig({
   plugins: [react()],
   server: {
     host: '0.0.0.0',
-    port: 3001,
-    proxy: {
-      '/api': {
-        target: 'http://localhost:4004',
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, '')
-      }
-    }
+    port: 3002,
   },
   preview: {
     host: '0.0.0.0',
-    port: 3001
-  }
+    port: 3002,
+  },
 })
