@@ -9,7 +9,7 @@ import Projects from './pages/Projects'
 import NotFound from './pages/NotFound'
 import DogBreedsClassifier from './pages/projects/DogBreedsClassifier'
 
-function App() {
+export function App() {
   return (
     <Router>
       <ScrollToTop />
@@ -29,4 +29,3 @@ function App() {
   )
 }
 
-export default App
