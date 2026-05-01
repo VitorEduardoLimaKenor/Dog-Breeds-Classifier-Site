@@ -97,7 +97,7 @@ A listagem é gerada a partir de um único arquivo: [app/src/data/projects.js](a
 ```bash
 cd app
 npm install
-npm run dev          # Vite em http://localhost:3000
+npm run dev          # Vite em http://localhost:3001
 ```
 
 > Para a página do classificador funcionar localmente, suba o backend [dogbreeds-api](https://github.com/VitorEduardoLimaKenor/dogbreeds-api) e configure as variáveis de ambiente (abaixo).
@@ -114,10 +114,10 @@ docker build \
   -t vitor-kenor-portfolio .
 
 # run
-docker run -p 3000:3000 vitor-kenor-portfolio
+docker run -p 3001:3001 vitor-kenor-portfolio
 ```
 
-Acesse <http://localhost:3000>.
+Acesse <http://localhost:3001>.
 
 ---
 
